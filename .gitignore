@@ -1,0 +1,29 @@
+# Archivos de credenciales y configuración
+mt5_credentials.py
+.env
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entorno virtual
+venv/
+
+# Archivos de IDE
+.vscode/
+.idea/
+
+# Archivos de log
+*.log
+
+# Archivos temporales
+*.tmp
+
+# Archivos de datos sensibles
+*.pkl
+*.h5
+
+# Directorios de datos
+data/
+libros/
