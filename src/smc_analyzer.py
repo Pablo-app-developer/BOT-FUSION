@@ -48,7 +48,7 @@ class SMCAnalyzer:
             
         return range_info
     
-    def identify_order_blocks(self, open_prices, high_prices, low_prices, close_prices):
+    def identify_order_blocks(self, high_prices, low_prices, close_prices):
         """
         Identifica Order Blocks alcistas y bajistas
         
