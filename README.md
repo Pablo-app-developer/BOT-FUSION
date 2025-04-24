@@ -45,14 +45,27 @@ pip install -r requirements.txt
 
 ## Uso
 
-1. Ejecutar el bot:
+### Ejecutar el bot
+Para ejecutar el bot, utiliza uno de los siguientes métodos:
+
+#### Opción 1: Usando el script de ejecución (Recomendado)
 ```bash
-python src/bot_trading.py
+python ejecutar_bot.py
+```
+O simplemente haz doble clic en `ejecutar_bot.bat` en Windows.
+
+#### Opción 2: Desde la carpeta raíz
+```bash
+python -m src.bot_trading
 ```
 
-2. Monitorear operaciones:
-   - El bot imprimirá información sobre análisis y operaciones en la consola
-   - Las operaciones se ejecutarán automáticamente en MetaTrader 5
+#### Opción 3: Desde la carpeta src
+```bash
+cd src
+python bot_trading.py
+```
+
+> **Nota**: Para más detalles sobre la ejecución, consulta el archivo `INSTRUCCIONES.md`.
 
 ## Estrategia SMC+LIT
 
