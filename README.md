@@ -1,31 +1,31 @@
 # Bot Trading FUSION
 
-Bot de trading automático para EUR/USD que implementa estrategias SMC (Smart Money Concepts) y análisis técnico avanzado.
+## Descripción
+Bot de trading automático para el par EUR/USD basado en estrategias Smart Money Concepts (SMC) y Liquidity & Institutional Trading (LIT). El bot analiza datos históricos, identifica patrones SMC+LIT y ejecuta operaciones en MetaTrader 5.
 
-## Características
+## Características principales
+- Identificación de Order Blocks (OB) alcistas y bajistas
+- Detección de Fair Value Gaps (FVG)
+- Análisis de niveles de liquidez y Change of Character (CHoCH)
+- Gestión adaptativa de riesgo basada en volatilidad
+- Generación de señales con sistema de puntuación por confluencia
+- Integración completa con MetaTrader 5
 
-- Análisis técnico avanzado
-- Integración con MetaTrader 5
-- Estrategias SMC implementadas
-- Gestión de riesgos automatizada
-- Procesamiento de señales en tiempo real
-
-## Estructura del Proyecto
-
+## Estructura del proyecto
 ```
-├── src/
-│   ├── bot_trading.py       # Clase principal del bot
-│   ├── technical_analysis.py # Análisis técnico
-│   ├── signal_generator.py   # Generador de señales
-│   ├── risk_manager.py      # Gestión de riesgos
-│   └── config.py            # Configuraciones generales
+├── data/            # Datos históricos y resultados
+├── models/          # Modelos entrenados
+├── src/             # Código fuente
+│   ├── bot_trading.py         # Clase principal del bot
+│   ├── smc_analyzer.py        # Análisis de Smart Money Concepts
+│   ├── range_detector.py      # Detector de rangos y CHoCH
+│   ├── signal_generator.py    # Generador de señales
+│   ├── risk_manager.py        # Gestor de riesgo adaptativo
+│   ├── config.py              # Configuración del bot
+│   └── mt5_credentials.py     # Credenciales de MetaTrader 5
+├── news/           # Análisis de noticias económicas
+└── tests/          # Pruebas unitarias
 ```
-
-## Requisitos
-
-- Python 3.8+
-- MetaTrader 5
-- Dependencias listadas en requirements.txt
 
 ## Instalación
 
@@ -45,26 +45,49 @@ pip install -r requirements.txt
 
 ## Uso
 
-1. Configurar parámetros en `config.py`
-2. Ejecutar el bot:
+1. Ejecutar el bot:
 ```bash
 python src/bot_trading.py
 ```
 
-## Seguridad
+2. Monitorear operaciones:
+   - El bot imprimirá información sobre análisis y operaciones en la consola
+   - Las operaciones se ejecutarán automáticamente en MetaTrader 5
 
-- Las credenciales de MT5 se manejan de forma segura
-- Archivo .gitignore configurado para proteger datos sensibles
-- Implementación de manejo de errores robusto
+## Estrategia SMC+LIT
 
-## Contribución
+El bot utiliza una combinación de estrategias Smart Money Concepts (SMC) y Liquidity & Institutional Trading (LIT):
 
-Si deseas contribuir al proyecto:
+1. **Order Blocks (OB)**: Identifica bloques de órdenes institucionales que pueden actuar como soporte/resistencia.
 
-1. Haz un Fork del repositorio
-2. Crea una rama para tu feature
-3. Envía un Pull Request
+2. **Fair Value Gaps (FVG)**: Detecta gaps en el precio que tienden a rellenarse.
+
+3. **Change of Character (CHoCH)**: Identifica cambios en la estructura del mercado que indican posibles reversiones.
+
+4. **Niveles de liquidez**: Analiza zonas donde se acumula liquidez para posibles cazas de stops.
+
+5. **Sistema de confluencia**: Genera señales solo cuando múltiples factores coinciden, aumentando la probabilidad de éxito.
+
+## Gestión de riesgo
+
+El bot implementa una gestión de riesgo adaptativa que:
+
+- Limita el riesgo por operación a un porcentaje del balance
+- Ajusta el tamaño de posición según la volatilidad del mercado
+- Implementa un límite de drawdown diario
+- Calcula automáticamente niveles de stop loss y take profit
+
+## Requisitos
+
+- Python 3.8+
+- MetaTrader 5
+- Cuenta de trading (demo o real)
+- Dependencias listadas en requirements.txt
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue para discutir cambios importantes antes de enviar un pull request.
 
 ## Licencia
 
-MIT License
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
